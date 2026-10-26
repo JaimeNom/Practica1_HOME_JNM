@@ -6,7 +6,6 @@
         Background="#0B0F17">
 
     <Window.Resources>
-
         <Style x:Key="HeaderNavItem" TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="#94A3B8"/>
@@ -58,7 +57,6 @@
             </Setter>
         </Style>
 
-
         <Style x:Key="SidebarBtnActive" TargetType="Button" BasedOn="{StaticResource SidebarBtn}">
             <Setter Property="Foreground" Value="#38BDF8"/>
             <Setter Property="Background" Value="#0F2847"/>
@@ -68,57 +66,58 @@
 
     <DockPanel LastChildFill="True">
 
-
+        <!-- CABECERA SUPERIOR -->
         <Border DockPanel.Dock="Top" Height="65" Background="#111827" BorderBrush="#1F2937" BorderThickness="0,0,0,1" Padding="20,0">
             <Grid>
-
+                <!-- Logo -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <Border Width="10" Height="22" CornerRadius="5" Background="#38BDF8" Margin="0,0,12,0"/>
-                    <TextBlock Text="BLIZZARD" Foreground="#F8FAFC" FontSize="18" FontWeight="Black" VerticalAlignment="Center"/>
+                    <TextBlock Text="NEXUS" Foreground="#F8FAFC" FontSize="18" FontWeight="Black" VerticalAlignment="Center"/>
+                    <TextBlock Text="GAME" Foreground="#38BDF8" FontSize="18" FontWeight="Black" VerticalAlignment="Center"/>
                 </StackPanel>
 
-                
+                <!-- Menú Central -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button Content="TIENDA" Style="{StaticResource HeaderNavItem}"/>
                     <Button Content="COMUNIDAD" Style="{StaticResource HeaderNavItem}"/>
                     <Button Content="SOPORTE" Style="{StaticResource HeaderNavItem}"/>
                 </StackPanel>
 
+                <!-- PERFIL Y BOTÓN CERRAR SESIÓN (AQUÍ ESTÁ LA ADAPTACIÓN) -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock x:Name="lblUsuarioBienvenida" Text="mi perfil" Foreground="#94A3B8" FontSize="12" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,10,0"/>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Cursor="Hand">
-                    <TextBlock Text="mi perfil" Foreground="#94A3B8" FontSize="12" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                    <Border Width="34" Height="34" CornerRadius="17" Background="#1E293B" BorderBrush="#38BDF8" BorderThickness="1.5">
+                    <Border Width="34" Height="34" CornerRadius="17" Background="#1E293B" BorderBrush="#38BDF8" BorderThickness="1.5" Margin="0,0,12,0">
                         <TextBlock Text="👤" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Foreground="#38BDF8"/>
+                    </Border>
+
+                    <Border Background="#1F2937" CornerRadius="6" Padding="8,4">
+                        <Button x:Name="btnCerrarSesion" Content="Cerrar Sesión" Background="Transparent" BorderThickness="0" Foreground="#EF4444" FontWeight="Bold" FontSize="11" Cursor="Hand" Click="BtnCerrarSesion_Click"/>
                     </Border>
                 </StackPanel>
             </Grid>
         </Border>
 
-
+        <!-- MENÚ LATERAL -->
         <Border DockPanel.Dock="Left" Width="180" Background="#111827" BorderBrush="#1F2937" BorderThickness="0,0,1,0" Padding="12,20">
             <StackPanel>
                 <TextBlock Text="NAVEGACIÓN" Foreground="#475569" FontSize="10" FontWeight="Black" Margin="12,0,0,10"/>
-
                 <Button Content="🔥  Destacados" Style="{StaticResource SidebarBtnActive}"/>
                 <Button Content="🎮  Mis juegos" Style="{StaticResource SidebarBtn}"/>
-                <Button Content="⚙️  Configuración" Style="{StaticResource SidebarBtn}"/>
+                <Button Content="⚙  Configuración" Style="{StaticResource SidebarBtn}"/>
             </StackPanel>
         </Border>
 
-        
+        <!-- ÁREA CENTRAL DE JUEGOS -->
         <Border Background="#0B0F17" Padding="25">
             <StackPanel>
-
-
                 <TextBlock Text="Catálogo Principal" Foreground="#F8FAFC" FontSize="20" FontWeight="Bold" Margin="0,0,0,4"/>
                 <TextBlock Text="Explora los títulos destacados de la plataforma" Foreground="#64748B" FontSize="12" Margin="0,0,0,20"/>
-
 
                 <Border BorderBrush="#1F2937" BorderThickness="1" CornerRadius="16" Background="#111827" Padding="20">
                     <WrapPanel Orientation="Horizontal">
 
-
-                        <Border Width="160" Height="190" Margin="10" CornerRadius="12" Background="#1E293B" BorderBrush="#334155" BorderThickness="1" Cursor="Hand">
+                        <Border Width="160" Height="210" Margin="10" CornerRadius="12" Background="#1E293B" BorderBrush="#334155" BorderThickness="1" Cursor="Hand">
                             <Border.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="2" Opacity="0.3" Color="Black"/>
                             </Border.Effect>
@@ -127,24 +126,19 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-
-
-                                <Border Grid.Row="0" CornerRadius="11,11,0,0" Background="#0284C7">
-                                    <TextBlock Text="JUEGO" Foreground="#F8FAFC" FontWeight="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Border Grid.Row="0" CornerRadius="11,11,0,0" ClipToBounds="True">
+                                    <Image Source="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400" Stretch="UniformToFill"/>
                                 </Border>
-
-
                                 <Border Grid.Row="1" Background="#0F172A" CornerRadius="0,0,11,11" Padding="12">
                                     <StackPanel>
-                                        <TextBlock Text="Título 01" Foreground="#F8FAFC" FontWeight="Bold" FontSize="13"/>
-                                        <TextBlock Text="Destacado" Foreground="#38BDF8" FontSize="11" FontWeight="SemiBold" Margin="0,2,0,0"/>
+                                        <TextBlock Text="Cyberpunk 2077" Foreground="#F8FAFC" FontWeight="Bold" FontSize="13" TextTrimming="CharacterEllipsis"/>
+                                        <TextBlock Text="Acción / RPG" Foreground="#38BDF8" FontSize="11" FontWeight="SemiBold" Margin="0,2,0,0"/>
                                     </StackPanel>
                                 </Border>
                             </Grid>
                         </Border>
 
-
-                        <Border Width="160" Height="190" Margin="10" CornerRadius="12" Background="#1E293B" BorderBrush="#334155" BorderThickness="1" Cursor="Hand">
+                        <Border Width="160" Height="210" Margin="10" CornerRadius="12" Background="#1E293B" BorderBrush="#334155" BorderThickness="1" Cursor="Hand">
                             <Border.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="2" Opacity="0.3" Color="Black"/>
                             </Border.Effect>
@@ -153,22 +147,19 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-
-                                <Border Grid.Row="0" CornerRadius="11,11,0,0" Background="#6366F1">
-                                    <TextBlock Text="JUEGO" Foreground="#F8FAFC" FontWeight="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Border Grid.Row="0" CornerRadius="11,11,0,0" ClipToBounds="True">
+                                    <Image Source="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400" Stretch="UniformToFill"/>
                                 </Border>
-
                                 <Border Grid.Row="1" Background="#0F172A" CornerRadius="0,0,11,11" Padding="12">
                                     <StackPanel>
-                                        <TextBlock Text="Título 02" Foreground="#F8FAFC" FontWeight="Bold" FontSize="13"/>
-                                        <TextBlock Text="Popular" Foreground="#818CF8" FontSize="11" FontWeight="SemiBold" Margin="0,2,0,0"/>
+                                        <TextBlock Text="Elden Ring" Foreground="#F8FAFC" FontWeight="Bold" FontSize="13" TextTrimming="CharacterEllipsis"/>
+                                        <TextBlock Text="Fantasía Oscura" Foreground="#818CF8" FontSize="11" FontWeight="SemiBold" Margin="0,2,0,0"/>
                                     </StackPanel>
                                 </Border>
                             </Grid>
                         </Border>
 
-
-                        <Border Width="160" Height="190" Margin="10" CornerRadius="12" Background="#1E293B" BorderBrush="#334155" BorderThickness="1" Cursor="Hand">
+                        <Border Width="160" Height="210" Margin="10" CornerRadius="12" Background="#1E293B" BorderBrush="#334155" BorderThickness="1" Cursor="Hand">
                             <Border.Effect>
                                 <DropShadowEffect BlurRadius="15" ShadowDepth="2" Opacity="0.3" Color="Black"/>
                             </Border.Effect>
@@ -177,15 +168,13 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-
-                                <Border Grid.Row="0" CornerRadius="11,11,0,0" Background="#10B981">
-                                    <TextBlock Text="JUEGO" Foreground="#F8FAFC" FontWeight="Black" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Border Grid.Row="0" CornerRadius="11,11,0,0" ClipToBounds="True">
+                                    <Image Source="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400" Stretch="UniformToFill"/>
                                 </Border>
-
                                 <Border Grid.Row="1" Background="#0F172A" CornerRadius="0,0,11,11" Padding="12">
                                     <StackPanel>
-                                        <TextBlock Text="Título 03" Foreground="#F8FAFC" FontWeight="Bold" FontSize="13"/>
-                                        <TextBlock Text="Nuevo" Foreground="#34D399" FontSize="11" FontWeight="SemiBold" Margin="0,2,0,0"/>
+                                        <TextBlock Text="Forza Horizon" Foreground="#F8FAFC" FontWeight="Bold" FontSize="13" TextTrimming="CharacterEllipsis"/>
+                                        <TextBlock Text="Carreras" Foreground="#34D399" FontSize="11" FontWeight="SemiBold" Margin="0,2,0,0"/>
                                     </StackPanel>
                                 </Border>
                             </Grid>
@@ -193,7 +182,6 @@
 
                     </WrapPanel>
                 </Border>
-
             </StackPanel>
         </Border>
 
